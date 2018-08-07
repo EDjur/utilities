@@ -1,4 +1,4 @@
-from collections.abc import MutableMapping
+from collections.abc import MutableMapping, MutableSequence
 from contextlib import suppress
         
 def delete_keys_from_dict(dictionary, keys):
@@ -42,7 +42,7 @@ def delete_keys_from_dict(dictionary, keys):
         with suppress(KeyError):
             del dictionary[key]
     for value in dictionary.values():
-        if isinstance(value, list):
+        if isinstance(value, MutableSequence):
             for item in value:
                 delete_keys_from_dict(item, keys)
         if isinstance(value, MutableMapping):
