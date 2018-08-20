@@ -44,6 +44,7 @@ def delete_keys_from_dict(dictionary, keys):
     for value in dictionary.values():
         if isinstance(value, MutableSequence):
             for item in value:
-                delete_keys_from_dict(item, keys)
+                if isinstance(item, MutableMapping):
+                        delete_keys_from_dict(item, keys)
         if isinstance(value, MutableMapping):
             delete_keys_from_dict(value, keys)
