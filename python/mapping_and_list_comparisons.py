@@ -57,43 +57,34 @@ def find_and_save_dicts(dictionary, wanted, key):
 
     EXAMPLE USAGE:
     :param dictionary:
-        {'SolutionDetail': {
-            'SolutionDetails': {
-                'OperationImageId': 'Shoulder_Variant01_V',
-                'Cooling': {
-                    'CoolingStyle': 'DRY',
-                    'Coolant': 'DRY'
+        {'Detail': {
+            'Details': {
+                'Styles': {
+                    'Style': 'X',
                     },
                 'Features': [],
-                'CuttingToolAssemblyId': 1784475,
-                'CuttingToolItems': [
+                'Items': [
                     {
-                        'OrderCodeAnsi': '',
+                        'Ansi': '',
                         'Warnings': []
                     }
                 ],
-                'ToolFamily': 'CoroMill Plura',
                 'Params': [
                     {
-                        'ShortName': 'DC',
-                        'PreferredName': 'cutting diameter',
-                        'ToolingName': 'DC',
-                        'DescriptorName': 'DC',  # This is the dict we want
+                        'ShortName': 'UNWANTED_VALUE_1',
+                        'TName': 'UNWANTED_VALUE_1',
+                        'DescriptorName': 'UNWANTED_VALUE_1',
                         'DefaultValue': None,
                     }
                 ]
             }
-            'CuttingData': {
-                '$type': 'TouchTime.Web.Models.Solution.Rm0001CuttingData, TouchTime.Web',
-                'BendingTabData': {
-                    'BendingParameters': [
+            'Data': {
+                'TabData': {
+                    'Parameters': [
                             {
-                                '$type': 'TouchTime.Web.Models.Parameter.MultivalueDisplayableParameter, TouchTime.Web',
                                 'Messages': [None],
-                                'IsServerRelevant': False,
                                 'RoundingPrecision': 0,
-                                'DescriptorName': 'BENDL_X',  # This is the dict we want
-                                'Value': [0.198],
+                                'DescriptorName': 'WANTED_VALUE_1',  # This is the dict we want
                                 'ValueTitle': 'System.Object[]',
                             }
                         ]
@@ -102,16 +93,13 @@ def find_and_save_dicts(dictionary, wanted, key):
             }
         }
     :param wanted:
-        wanted = ['VC', 'FZ', 'AE', 'AP', 'NOPAE', 'NOPAP', 'QQ', 'PPC', 'BENDL_X', 'DC']
+        wanted = ['WANTED_VALUE_1']
     :return: does not return, instead appends list in place
         list = [
                 {
-                '$type': 'TouchTime.Web.Models.Parameter.MultivalueDisplayableParameter, TouchTime.Web',
                 'Messages': [None],
-                'IsServerRelevant': False,
                 'RoundingPrecision': 0,
-                'DescriptorName': 'BENDL_X',
-                'Value': [0.198],
+                'DescriptorName': 'WANTED_VALUE_1',
                 'ValueTitle': 'System.Object[]',
                 }
             ]
