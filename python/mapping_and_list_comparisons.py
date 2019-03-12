@@ -1,6 +1,7 @@
 from collections.abc import MutableMapping, MutableSequence
 from contextlib import suppress
-        
+
+
 def delete_keys_from_dict(dictionary, keys):
     """
     Recursively deletes keys contained in {keys} from {dictionary}
@@ -45,11 +46,11 @@ def delete_keys_from_dict(dictionary, keys):
         if isinstance(value, MutableSequence):
             for item in value:
                 if isinstance(item, MutableMapping):
-                        delete_keys_from_dict(item, keys)
+                    delete_keys_from_dict(item, keys)
         if isinstance(value, MutableMapping):
             delete_keys_from_dict(value, keys)
 
-        
+
 def find_and_save_dicts(dictionary, wanted, key):
     """
     Recursively finds and saves dictionaries in a list (defined before function call)
@@ -107,7 +108,7 @@ def find_and_save_dicts(dictionary, wanted, key):
     with suppress(KeyError):
         for item in wanted:
             if dictionary[key] == item:
-                resulting_list.append(dictionary)
+                resulting_list.append(dictionary)  # Define outside function
     for value in dictionary.values():
         if isinstance(value, MutableSequence):
             for item in value:
